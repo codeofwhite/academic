@@ -13,6 +13,7 @@
             --muted: #666666;
             --link: #0055cc;
             --border: #e5e5e5;
+            --tag: #f0f4f8;
         }
         [data-theme="dark"] {
             --bg: #111111;
@@ -20,6 +21,7 @@
             --muted: #999999;
             --link: #60a5fa;
             --border: #333333;
+            --tag: #1e293b;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -34,9 +36,10 @@
         header {
             display: flex;
             justify-content: flex-end;
+            gap: 0.6rem;
             margin-bottom: 2rem;
         }
-        #theme-toggle {
+        #theme-toggle, #lang-toggle {
             background: none;
             border: 1px solid var(--border);
             border-radius: 4px;
@@ -60,6 +63,21 @@
         }
         h1 { font-size: 1.75rem; margin: 0 0 0.25rem; color: var(--text); }
         .subtitle { color: var(--muted); margin: 0; font-size: 0.95rem; }
+        .badge {
+            display: inline-block;
+            background: var(--tag);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+            color: var(--text);
+        }
+        .motto {
+            margin-top: 0.6rem;
+            font-style: italic;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
         section { margin-bottom: 1.8rem; }
         h2 {
             font-size: 1.1rem;
@@ -72,8 +90,25 @@
         p { margin: 0 0 0.5rem; }
         a { color: var(--link); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .links { display: flex; flex-wrap: wrap; gap: 0.8rem 1.2rem; margin-top: 0.4rem; }
+        .links { display: flex; flex-wrap: wrap; gap: 0.8rem 1.2rem; margin-top: 0.4rem; align-items: center; }
+        .cv-button {
+            display: inline-block;
+            padding: 4px 10px;
+            border: 1px solid var(--link);
+            border-radius: 6px;
+            color: var(--link);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .cv-button:hover {
+            background: var(--link);
+            color: white;
+            text-decoration: none;
+        }
         .placeholder { color: var(--muted); font-style: italic; }
+        [lang-zh] { display: none; }
+        :is([data-current-lang="zh"]) [lang-en] { display: none; }
+        :is([data-current-lang="zh"]) [lang-zh] { display: block; }
         @media (max-width: 600px) {
             .profile { flex-direction: column; align-items: flex-start; }
             body { padding: 2rem 1rem; }
@@ -82,63 +117,104 @@
 </head>
 <body>
     <header>
+        <button id="lang-toggle">中/En</button>
         <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     </header>
 
     <div class="profile">
         <img src="avatar.jpg" alt="Hejun Zhang">
         <div>
-            <h1>Hejun Zhang</h1>
-            <p class="subtitle">Multimodal Learning · Embodied AI · AI Agents</p>
-            <p class="subtitle">Chongqing University</p>
+            <h1 lang-en>Hejun Zhang</h1>
+            <h1 lang-zh>张贺钧</h1>
+            <p class="subtitle" lang-en>Multimodal Learning · Embodied AI · AI Agents</p>
+            <p class="subtitle" lang-zh>多模态学习 · 具身智能 · AI 智能体</p>
+            <p class="subtitle" lang-en>Chongqing University</p>
+            <p class="subtitle" lang-zh>重庆大学</p>
+            <span class="badge" lang-en>Researcher | AI Enthusiast</span>
+            <span class="badge" lang-zh>研究者 | AI 爱好者</span>
+            <div class="motto">Time is free, but somehow priceless</div>
         </div>
     </div>
 
-    <section>
+    <section lang-en>
         <p>I am a researcher focused on efficient deep learning and embodied intelligence. Open to academic collaboration and research opportunities.</p>
     </section>
-
-    <section>
-        <h2>Education</h2>
-        <p><strong>Chongqing University</strong> · B.Eng. in Data Science & Big Data Technology</p>
+    <section lang-zh>
+        <p>主要研究方向为高效深度学习与具身智能，乐于学术交流与合作，欢迎联系交流。</p>
     </section>
 
     <section>
-        <h2>Research Interests</h2>
-        <p>Multimodal Representation Learning, Embodied AI, Autonomous Agents, Model Efficiency & Compression</p>
+        <h2 lang-en>Education</h2>
+        <h2 lang-zh>教育经历</h2>
+        <p lang-en><strong>Chongqing University</strong> · B.Eng. in Data Science & Big Data Technology</p>
+        <p lang-zh><strong>重庆大学</strong> · 数据科学与大数据技术 本科</p>
     </section>
 
     <section>
-        <h2>Publications</h2>
-        <p class="placeholder">Working on manuscripts. Updates will appear here.</p>
+        <h2 lang-en>Research Interests</h2>
+        <h2 lang-zh>研究方向</h2>
+        <p lang-en>Multimodal Representation Learning, Embodied AI, Autonomous Agents, Model Efficiency & Compression</p>
+        <p lang-zh>多模态表示学习、具身智能、自主智能体、模型高效化与压缩</p>
     </section>
 
     <section>
-        <h2>Projects</h2>
-        <p class="placeholder">Selected open-source work will be listed soon.</p>
+        <h2 lang-en>Publications</h2>
+        <h2 lang-zh>论文成果</h2>
+        <p class="placeholder" lang-en>Working on manuscripts. Updates will appear here.</p>
+        <p class="placeholder" lang-zh>正在撰写中，后续会更新。</p>
+        <!--
+        <p><a href="https://scholar.google.com/..." target="_blank">Google Scholar</a></p>
+        -->
     </section>
 
     <section>
-        <h2>Links</h2>
+        <h2 lang-en>Projects</h2>
+        <h2 lang-zh>项目作品</h2>
+        <p class="placeholder" lang-en>Selected open-source work will be listed soon.</p>
+        <p class="placeholder" lang-zh>开源项目整理中，敬请期待。</p>
+    </section>
+
+    <section>
+        <h2 lang-en>Links & CV</h2>
+        <h2 lang-zh>联系方式与简历</h2>
         <div class="links">
             <a href="https://github.com/codeofwhite" target="_blank">GitHub</a>
             <a href="https://codeofwhite.github.io/" target="_blank">Blog</a>
             <a href="https://www.kaggle.com/hejuncheung" target="_blank">Kaggle</a>
             <a href="https://linkedin.com/in/hejun-zhang-947620344" target="_blank">LinkedIn</a>
             <a href="mailto:1363180320@qq.com">Email</a>
+            <a href="CV.pdf" class="cv-button" target="_blank" download>Download CV</a>
         </div>
     </section>
 
     <script>
+        // 深色模式
         const btn = document.getElementById('theme-toggle');
         const html = document.documentElement;
         const saved = localStorage.getItem('theme');
-        if (saved === 'dark') { html.dataset.theme = 'dark'; btn.textContent = '☀️'; }
+        if (saved === 'dark') {
+            html.dataset.theme = 'dark';
+            btn.textContent = '☀️';
+        }
         btn.onclick = () => {
             const isDark = html.dataset.theme === 'dark';
             html.dataset.theme = isDark ? 'light' : 'dark';
             localStorage.setItem('theme', isDark ? 'light' : 'dark');
             btn.textContent = isDark ? '🌙' : '☀️';
+        };
+
+        // 中英双语切换
+        const langBtn = document.getElementById('lang-toggle');
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang === 'zh') {
+            html.dataset.currentLang = 'zh';
+            langBtn.textContent = 'En/中';
+        }
+        langBtn.onclick = () => {
+            const isZh = html.dataset.currentLang === 'zh';
+            html.dataset.currentLang = isZh ? 'en' : 'zh';
+            localStorage.setItem('lang', isZh ? 'en' : 'zh');
+            langBtn.textContent = isZh ? '中/En' : 'En/中';
         };
     </script>
     <script data-goatcounter="https://academic-codeofwhite.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
