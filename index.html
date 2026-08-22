@@ -91,20 +91,6 @@
         a { color: var(--link); text-decoration: none; }
         a:hover { text-decoration: underline; }
         .links { display: flex; flex-wrap: wrap; gap: 0.8rem 1.2rem; margin-top: 0.4rem; align-items: center; }
-        .cv-button {
-            display: inline-block;
-            padding: 4px 10px;
-            border: 1px solid var(--link);
-            border-radius: 6px;
-            color: var(--link);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        .cv-button:hover {
-            background: var(--link);
-            color: white;
-            text-decoration: none;
-        }
         .placeholder { color: var(--muted); font-style: italic; }
         [lang-zh] { display: none; }
         :is([data-current-lang="zh"]) [lang-en] { display: none; }
@@ -172,8 +158,7 @@
     <section>
         <h2 lang-en>Projects</h2>
         <h2 lang-zh>项目作品</h2>
-        <p class="placeholder" lang-en>Selected open-source work will be listed soon.</p>
-        <p class="placeholder" lang-zh>开源项目整理中，敬请期待。</p>
+        <p><a href="https://github.com/codeofwhite/awesome-deformable-manipulation" target="_blank">awesome-deformable-manipulation</a></p>
     </section>
 
     <section>
