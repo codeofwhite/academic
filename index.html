@@ -1,206 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-current-lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hejun Zhang</title>
-    <link rel="icon" href="avatar.jpg" type="image/x-icon">
-    <meta name="description" content="Academic homepage of Hejun Zhang. Researching Embodied Intelligence.">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --text: #222222;
-            --muted: #666666;
-            --link: #0055cc;
-            --border: #e5e5e5;
-            --tag: #f0f4f8;
-        }
-        [data-theme="dark"] {
-            --bg: #111111;
-            --text: #dddddd;
-            --muted: #999999;
-            --link: #60a5fa;
-            --border: #333333;
-            --tag: #1e293b;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            transition: background 0.2s, color 0.2s;
-        }
-        header {
-            display: flex;
-            justify-content: flex-end;
-            gap: 0.6rem;
-            margin-bottom: 2rem;
-        }
-        #theme-toggle, #lang-toggle {
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 0.25rem 0.5rem;
-            cursor: pointer;
-            color: var(--text);
-            font-size: 1rem;
-        }
-        .profile {
-            display: flex;
-            gap: 1.2rem;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        .profile img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            background: var(--border);
-        }
-        h1 { font-size: 1.75rem; margin: 0 0 0.25rem; color: var(--text); }
-        .subtitle { color: var(--muted); margin: 0; font-size: 0.95rem; }
-        .badge {
-            display: inline-block;
-            background: var(--tag);
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-top: 4px;
-            color: var(--text);
-        }
-        .motto {
-            margin-top: 0.6rem;
-            font-style: italic;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-        section { margin-bottom: 1.8rem; }
-        h2 {
-            font-size: 1.1rem;
-            margin: 0 0 0.6rem;
-            padding-bottom: 0.25rem;
-            border-bottom: 1px solid var(--border);
-            font-weight: 600;
-            color: var(--text);
-        }
-        p { margin: 0 0 0.5rem; }
-        a { color: var(--link); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .links { display: flex; flex-wrap: wrap; gap: 0.8rem 1.2rem; margin-top: 0.4rem; align-items: center; }
-        .placeholder { color: var(--muted); font-style: italic; }
-        [lang-zh] { display: none; }
-        :is([data-current-lang="zh"]) [lang-en] { display: none; }
-        :is([data-current-lang="zh"]) [lang-zh] { display: block; }
-        @media (max-width: 600px) {
-            .profile { flex-direction: column; align-items: flex-start; }
-            body { padding: 2rem 1rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hejun Zhang | Robot Learning &amp; Deformable Manipulation</title>
+  <meta name="description" content="Hejun Zhang is a master's student at Peking University interested in robot learning, deformable object manipulation, simulation, data, and evaluation.">
+  <link rel="canonical" href="https://codeofwhite.github.io/academic/">
+  <link rel="icon" href="avatar.jpg" type="image/jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hejun Zhang | Robot Learning & Deformable Manipulation">
+  <meta property="og:description" content="Research interests and open-source resources in robot learning and deformable object manipulation.">
+  <meta property="og:url" content="https://codeofwhite.github.io/academic/">
+  <meta property="og:image" content="https://codeofwhite.github.io/academic/avatar.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      const theme = localStorage.getItem('theme');
+      document.documentElement.dataset.theme = theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      if (localStorage.getItem('lang') === 'zh') {
+        document.documentElement.dataset.currentLang = 'zh';
+        document.documentElement.lang = 'zh-CN';
+      }
+    } catch (_) { /* Stored preferences are optional; default content remains available. */ }
+  </script>
+  <style>
+    :root { color-scheme: light; --bg:#fff; --text:#252b34; --muted:#657080; --link:#245fa7; --line:#e5e9ee; --soft:#f5f7fa; }
+    :root[data-theme="dark"] { color-scheme:dark; --bg:#14181e; --text:#e2e7ef; --muted:#a2adbc; --link:#91baff; --line:#303944; --soft:#1e252e; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:24px; }
+    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    .page { max-width:920px; margin:auto; padding:28px 40px 30px; }
+    a { color:var(--link); text-decoration:none; text-underline-offset:4px; }
+    a:hover { text-decoration:underline; }
+    a:focus-visible, button:focus-visible { outline:2px solid var(--link); outline-offset:5px; }
+    .skip { position:absolute; top:-60px; background:var(--bg); padding:8px; }
+    .skip:focus { top:8px; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:20px; padding-bottom:18px; border-bottom:1px solid var(--line); }
+    nav { display:flex; flex-wrap:wrap; gap:22px; font-size:13px; }
+    nav a { color:var(--muted); }
+    .controls { display:flex; gap:8px; flex-shrink:0; }
+    button { background:transparent; color:var(--muted); border:1px solid var(--line); border-radius:5px; padding:5px 10px; min-height:34px; cursor:pointer; font:inherit; font-size:12px; line-height:1.5; }
+    button:hover { background:var(--soft); }
+    .profile { display:grid; grid-template-columns:minmax(0,1fr) 148px; gap:48px; align-items:center; padding:48px 0 32px; }
+    .eyebrow { color:var(--muted); text-transform:uppercase; letter-spacing:.13em; font-size:11px; font-weight:600; margin:0 0 7px; }
+    h1 { font-size:36px; line-height:1.25; letter-spacing:-1px; font-weight:650; margin:0 0 9px; }
+    .chinese-name { font-size:20px; color:var(--muted); font-weight:400; margin-left:9px; letter-spacing:1px; white-space:nowrap; }
+    .affiliation { margin:0; color:var(--muted); font-size:15px; }
+    .portrait { width:148px; height:148px; object-fit:cover; border-radius:12px; }
+    .links { display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:17px; font-size:14px; }
+    .intro { max-width:730px; margin-bottom:40px; }
+    p { margin:0 0 12px; }
+    section { margin:0 0 40px; }
+    h2 { font-size:21px; font-weight:600; letter-spacing:-.35px; margin:0 0 20px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+    .interests { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+    h3 { font-size:15px; line-height:1.5; margin:0 0 7px; font-weight:600; }
+    .interests p { font-size:14px; color:var(--muted); line-height:1.7; margin:0; }
+    .project { display:grid; grid-template-columns:260px minmax(0,1fr); gap:26px; align-items:start; }
+    .project-image { display:block; width:100%; height:auto; border-radius:8px; }
+    .project h3 { font-size:17px; margin:4px 0 8px; }
+    .project p { font-size:14px; line-height:1.7; margin-bottom:12px; }
+    .project .eyebrow { font-size:10px; margin:0; }
+    .project-links { display:flex; flex-wrap:wrap; gap:6px 16px; font-size:13px; }
+    .metrics { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; min-height:20px; }
+    .metrics img { display:block; height:20px; }
+    .education-row { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:24px; margin-bottom:18px; }
+    .education-row strong { font-size:15px; font-weight:600; }
+    .degree, .dates { color:var(--muted); font-size:14px; }
+    .dates { white-space:nowrap; }
+    footer { display:flex; justify-content:space-between; gap:16px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    [lang-zh] { display:none !important; }
+    html[data-current-lang="zh"] [lang-en] { display:none !important; }
+    html[data-current-lang="zh"] [lang-zh] { display:revert !important; }
+    @media (max-width:650px) {
+      .page { padding:20px 22px 24px; }
+      header { align-items:flex-start; gap:12px; }
+      nav { gap:8px 15px; font-size:12px; }
+      .profile { grid-template-columns:minmax(0,1fr) 86px; gap:15px; padding:34px 0 25px; }
+      .portrait { width:86px; height:100px; }
+      h1 { font-size:29px; }
+      .chinese-name { display:block; margin:7px 0 0; font-size:17px; }
+      .affiliation { font-size:13px; }
+      .links { gap:6px 14px; font-size:13px; }
+      .interests { grid-template-columns:1fr; gap:20px; }
+      .project { grid-template-columns:1fr; gap:18px; }
+      .project-image { max-width:420px; }
+      .education-row { column-gap:12px; }
+      .dates { font-size:12px; padding-top:3px; }
+      footer { flex-wrap:wrap; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="page">
     <header>
-        <button id="lang-toggle">中/En</button>
-        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <nav aria-label="Main navigation">
+        <a href="#research"><span lang-en>Research</span><span lang-zh>研究方向</span></a>
+        <a href="#resources"><span lang-en>Open Source</span><span lang-zh>开源资源</span></a>
+        <a href="#education"><span lang-en>Education</span><span lang-zh>教育经历</span></a>
+      </nav>
+      <div class="controls">
+        <button id="lang-toggle" type="button" aria-label="Switch to Chinese">中文</button>
+        <button id="theme-toggle" type="button" aria-label="Toggle dark mode">Dark</button>
+      </div>
     </header>
-
-    <div class="profile">
-        <img src="avatar.jpg" alt="Hejun Zhang">
+    <main id="main">
+      <div class="profile">
         <div>
-            <h1 lang-en>Hejun Zhang</h1>
-            <h1 lang-zh>张和俊</h1>
-            <p class="subtitle" lang-en>Embodied Intelligence</p>
-            <p class="subtitle" lang-zh>具身智能</p>
-            <p class="subtitle" lang-en>Chongqing University | Peking University</p>
-            <p class="subtitle" lang-zh>重庆大学 | 北京大学</p>
-            <span class="badge" lang-en>Researcher | AI Enthusiast</span>
-            <span class="badge" lang-zh>研究者 | AI 爱好者</span>
-            <div class="motto">Time is free, but somehow priceless</div>
-        </div>
-    </div>
-
-    <section lang-en>
-        <p>I am a researcher focused on efficient deep learning and embodied intelligence. Open to academic collaboration and research opportunities.</p>
-    </section>
-    <section lang-zh>
-        <p>主要研究方向为高效深度学习与具身智能，乐于学术交流与合作，欢迎联系交流。</p>
-    </section>
-
-    <section>
-        <h2 lang-en>Education</h2>
-        <h2 lang-zh>教育经历</h2>
-        <p lang-en><strong>Chongqing University</strong> · B.Eng. in Data Science & Big Data Technology, 2022–2026</p>
-        <p lang-zh><strong>重庆大学</strong> · 数据科学与大数据技术 工学学士，2022–2026</p>
-        <p lang-en><strong>Peking University</strong> · M.S. in Computer Science and Technology, 2026–2029</p>
-        <p lang-zh><strong>北京大学</strong> · 计算机科学与技术 硕士，2026–2029</p>
-    </section>
-
-    <section>
-        <h2 lang-en>Research Interests</h2>
-        <h2 lang-zh>研究方向</h2>
-        <p lang-en>Embodied Intelligence</p>
-        <p lang-zh>具身智能</p>
-    </section>
-
-    <section>
-        <h2 lang-en>Publications</h2>
-        <h2 lang-zh>论文成果</h2>
-        <p class="placeholder" lang-en>Working on manuscripts. Updates will appear here.</p>
-        <p class="placeholder" lang-zh>正在撰写中，后续会更新。</p>
-        <!--
-        <p><a href="https://scholar.google.com/..." target="_blank">Google Scholar</a></p>
-        -->
-    </section>
-
-    <section>
-        <h2 lang-en>Projects</h2>
-        <h2 lang-zh>项目作品</h2>
-        <p><a href="https://github.com/codeofwhite/awesome-deformable-manipulation" target="_blank">awesome-deformable-manipulation</a></p>
-    </section>
-
-    <section>
-        <h2 lang-en>Links</h2>
-        <h2 lang-zh>联系方式</h2>
-        <div class="links">
-            <a href="https://github.com/codeofwhite" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/hejun-zhang-947620344" target="_blank">LinkedIn</a>
+          <p class="eyebrow" lang-en>Robot Learning &amp; Manipulation</p>
+          <p class="eyebrow" lang-zh>机器人学习与操作</p>
+          <h1>Hejun Zhang <span class="chinese-name">张和俊</span></h1>
+          <p class="affiliation" lang-en>Master’s Student · Peking University</p>
+          <p class="affiliation" lang-zh>北京大学 · 硕士研究生</p>
+          <div class="links">
             <a href="mailto:hejunzhang04@gmail.com">Email</a>
+            <a href="https://github.com/codeofwhite">GitHub</a>
+            <a href="https://linkedin.com/in/hejun-zhang-947620344">LinkedIn</a>
+          </div>
         </div>
-    </section>
-
-    <script>
-        // 深色模式
-        const btn = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-        const saved = localStorage.getItem('theme');
-        if (saved === 'dark') {
-            html.dataset.theme = 'dark';
-            btn.textContent = '☀️';
-        }
-        btn.onclick = () => {
-            const isDark = html.dataset.theme === 'dark';
-            html.dataset.theme = isDark ? 'light' : 'dark';
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-            btn.textContent = isDark ? '🌙' : '☀️';
-        };
-
-        // 中英双语切换
-        const langBtn = document.getElementById('lang-toggle');
-        const savedLang = localStorage.getItem('lang');
-        if (savedLang === 'zh') {
-            html.dataset.currentLang = 'zh';
-            langBtn.textContent = 'En/中';
-        }
-        langBtn.onclick = () => {
-            const isZh = html.dataset.currentLang === 'zh';
-            html.dataset.currentLang = isZh ? 'en' : 'zh';
-            localStorage.setItem('lang', isZh ? 'en' : 'zh');
-            langBtn.textContent = isZh ? '中/En' : 'En/中';
-        };
-    </script>
-    <script data-goatcounter="https://academic-codeofwhite.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+        <img class="portrait" src="avatar.jpg" width="148" height="148" alt="Hejun Zhang">
+      </div>
+      <div class="intro">
+        <p lang-en>I am a master’s student at Peking University. My research interests lie in <strong>robot learning</strong> and <strong>deformable object manipulation</strong>, with a focus on simulation, data, and evaluation for reliable manipulation.</p>
+        <p lang-zh>我是北京大学的硕士研究生，关注<strong>机器人学习</strong>与<strong>可变形物体操作</strong>，希望通过仿真、数据与评测，推动更可靠的机器人操作。</p>
+        <p lang-en>I am interested in how robots can perceive and interact with objects whose shape changes during manipulation, such as cloth and rope. I welcome conversations and collaborations in these areas.</p>
+        <p lang-zh>我感兴趣的问题是：面对布料、绳索等在交互中持续改变形状的物体，机器人如何感知其状态并完成操作？欢迎相关方向的交流与合作。</p>
+      </div>
+      <section id="research" aria-labelledby="research-title">
+        <h2 id="research-title"><span lang-en>Research Interests</span><span lang-zh>研究方向</span></h2>
+        <div class="interests">
+          <div>
+            <h3 lang-en>Deformable Manipulation</h3><h3 lang-zh>可变形物体操作</h3>
+            <p lang-en>Perception and control for cloth, garments, and other objects with changing geometry.</p>
+            <p lang-zh>面向布料、衣物等形态可变物体的状态感知与操作控制。</p>
+          </div>
+          <div>
+            <h3 lang-en>Simulation &amp; Robot Data</h3><h3 lang-zh>仿真与机器人数据</h3>
+            <p lang-en>Simulation environments and demonstration data for learning manipulation skills.</p>
+            <p lang-zh>用于操作技能学习的仿真环境与示范数据。</p>
+          </div>
+          <div>
+            <h3 lang-en>Evaluation &amp; Generalization</h3><h3 lang-zh>评测与泛化</h3>
+            <p lang-en>Understanding policy failures and evaluating reliability across objects and visual conditions.</p>
+            <p lang-zh>理解策略的失败原因，评估跨物体与视觉条件的操作可靠性。</p>
+          </div>
+        </div>
+      </section>
+      <section id="resources" aria-labelledby="resources-title">
+        <h2 id="resources-title"><span lang-en>Open-source &amp; Resources</span><span lang-zh>开源项目与研究资源</span></h2>
+        <article class="project">
+          <a href="https://github.com/codeofwhite/awesome-deformable-embodied-ai" aria-label="Explore Awesome Deformable Embodied AI">
+            <img class="project-image" src="assets/deformable-manipulation.svg" width="1200" height="600" alt="Project illustration of two robotic grippers manipulating cloth" loading="lazy">
+          </a>
+          <div>
+            <p class="eyebrow" lang-en>Community Resource · IPPLAB</p>
+            <p class="eyebrow" lang-zh>社区研究资源 · IPPLAB</p>
+            <h3><a href="https://github.com/codeofwhite/awesome-deformable-embodied-ai">Awesome Deformable Embodied AI</a></h3>
+            <p lang-en>A curated resource collection on deformable object simulation and manipulation, covering simulators, perception and control, policy learning, sim-to-real transfer, and benchmarks. Includes a cloth dataset directory.</p>
+            <p lang-zh>整理可变形物体仿真与操作领域的研究资源，涵盖仿真器、感知与控制、策略学习、仿真到真实迁移及评测基准，并提供衣物数据集目录。</p>
+            <div class="project-links">
+              <a href="https://codeofwhite.github.io/awesome-deformable-embodied-ai/"><span lang-en>Website ↗</span><span lang-zh>项目网站 ↗</span></a>
+              <a href="https://github.com/codeofwhite/awesome-deformable-embodied-ai">GitHub ↗</a>
+              <a href="https://codeofwhite.github.io/awesome-deformable-embodied-ai/datasets/cloth-datasets.html"><span lang-en>Cloth Datasets ↗</span><span lang-zh>衣物数据集 ↗</span></a>
+            </div>
+            <div class="metrics" aria-label="GitHub repository statistics">
+              <a href="https://github.com/codeofwhite/awesome-deformable-embodied-ai"><img src="https://img.shields.io/github/stars/codeofwhite/awesome-deformable-embodied-ai?style=flat&amp;label=Stars&amp;color=426b9b&amp;labelColor=404854" alt="GitHub Stars" width="78" height="20" loading="lazy"></a>
+              <a href="https://github.com/codeofwhite/awesome-deformable-embodied-ai/forks"><img src="https://img.shields.io/github/forks/codeofwhite/awesome-deformable-embodied-ai?style=flat&amp;label=Forks&amp;color=426b9b&amp;labelColor=404854" alt="GitHub Forks" width="78" height="20" loading="lazy"></a>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section id="education" aria-labelledby="education-title">
+        <h2 id="education-title"><span lang-en>Education</span><span lang-zh>教育经历</span></h2>
+        <div class="education-row">
+          <div><strong lang-en>Peking University</strong><strong lang-zh>北京大学</strong><div class="degree" lang-en>M.S. in Computer Science and Technology</div><div class="degree" lang-zh>计算机科学与技术 · 硕士</div></div>
+          <span class="dates">2026–2029</span>
+        </div>
+        <div class="education-row">
+          <div><strong lang-en>Chongqing University</strong><strong lang-zh>重庆大学</strong><div class="degree" lang-en>B.Eng. in Data Science &amp; Big Data Technology</div><div class="degree" lang-zh>数据科学与大数据技术 · 工学学士</div></div>
+          <span class="dates">2022–2026</span>
+        </div>
+      </section>
+    </main>
+    <footer><span>Hejun Zhang · 张和俊</span><span lang-en>Open to research conversations.</span><span lang-zh>欢迎研究交流与合作。</span></footer>
+  </div>
+  <script>
+    const html = document.documentElement;
+    const themeButton = document.getElementById('theme-toggle');
+    const languageButton = document.getElementById('lang-toggle');
+    function updateControls() {
+      const dark = html.dataset.theme === 'dark';
+      const zh = html.dataset.currentLang === 'zh';
+      themeButton.textContent = zh ? (dark ? '浅色' : '深色') : (dark ? 'Light' : 'Dark');
+      themeButton.setAttribute('aria-label', zh ? (dark ? '切换浅色模式' : '切换深色模式') : (dark ? 'Switch to light mode' : 'Switch to dark mode'));
+      themeButton.setAttribute('aria-pressed', String(dark));
+      languageButton.textContent = zh ? 'EN' : '中文';
+      languageButton.setAttribute('aria-label', zh ? 'Switch to English' : '切换为中文');
+      html.lang = zh ? 'zh-CN' : 'en';
+    }
+    themeButton.addEventListener('click', () => {
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('theme', html.dataset.theme); } catch (_) { /* Preferences cannot persist when storage is disabled. */ }
+      updateControls();
+    });
+    languageButton.addEventListener('click', () => {
+      html.dataset.currentLang = html.dataset.currentLang === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', html.dataset.currentLang); } catch (_) { /* The language switch still works without storage. */ }
+      updateControls();
+    });
+    updateControls();
+  </script>
+  <script data-goatcounter="https://academic-codeofwhite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
